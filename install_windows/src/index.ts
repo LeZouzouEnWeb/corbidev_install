@@ -136,7 +136,7 @@ function shutdown() {
 async function start() {
     const PORT_SERVEUR = await findAvailablePort(PORT_INSTALL);
 
-    const server = app.listen(PORT_SERVEUR, async () => {
+    server.listen(PORT_SERVEUR, async () => {
         console.log(`✅ Server running at http://localhost:${PORT_SERVEUR}`);
         try {
             await open(`http://localhost:${PORT_SERVEUR}`);

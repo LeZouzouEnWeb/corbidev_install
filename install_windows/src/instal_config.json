@@ -10,7 +10,7 @@
         "symfony": "8.2.*",
         "php": "8.4.*",
         "mariadb": "11.7",
-        "adminer": "5.3.*"
+        "adminer": "5.3.0"
     },
     "port": {
         "install": 3000,
