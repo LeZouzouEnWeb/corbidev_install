@@ -301,5 +301,6 @@ wp-config.php
 /serveur*
 /server*
 *.bak
+
 /install_windows/dist/
 !/install_windows/dist/.corbidev
