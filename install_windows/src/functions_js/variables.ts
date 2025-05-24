@@ -1,5 +1,5 @@
 import path from "path";
-import config from  "../../instal_config.json";
+import config from  "../instal_config.json";
 /**
  * Le port sur lequel le serveur doit écouter.
  * @constant
