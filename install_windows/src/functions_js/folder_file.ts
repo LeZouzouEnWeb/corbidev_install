@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import * as path from 'path';
 
 export const createDirectoryIfNotExists = async (directoryPath: string): Promise<void> => {
     try {

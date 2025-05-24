@@ -6,7 +6,7 @@ import { FOLDER_REL_SERVER_FRONT } from './variables';
 /**
  * Installe SCSS et TypeScript en ajustant les fichiers et configurations nécessaires.
  */
-export function installScssTs(): void {
+export async function installScssTs(): Promise<void> {
     process.chdir(FOLDER_REL_SERVER_FRONT);
 
     // Chemins des fichiers

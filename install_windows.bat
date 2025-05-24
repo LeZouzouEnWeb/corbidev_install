@@ -1,34 +1,51 @@
+﻿chcp 65001 >nul
 @echo off
 cls
 
-cd install_windows
-set i=2
+echo =============================
+echo  🎶 Sélection du mode d'installation
+echo =============================
+echo.
+echo 1 - Mode rapide (npm install + start)
+echo 2 - Mode complet (init, install, dev tools)
+echo 3 - Mode Install 
+echo.
+set /p mode="Entrez le mode (1, 2 ou 3) : "
 
-if %i% NEQ 1 (
-    npm run start
-) else (
-
-    @REM Initialiser un projet npm si le fichier package.json n'existe pas déjà
-    if 1 == 1 (
-        echo Initialisation du projet npm...
-        npm init -y
-
-        @REM Installer Express si ce n'est pas déjà installé
-        if 1 == 1 (
-            echo Installation en cours...
-            npm i express socket.io yaml fs node-notifier open child_process uuid
-
-            if 1 == 1 (
-                echo Installation des dépendances dev...
-                npm i --save-dev typescript nodemon concurrently @types/node @types/yaml @types/node-notifier
-
-                @REM Lancer le script Node.js
-                echo Démarrage de l'application Node.js...
-                @REM npm run dev
-            )
-        )
-    )
+cd install_windows || (
+    echo ❌ Dossier 'install_windows' introuvable.
     pause
+    exit /b
+)
+
+
+
+if "%mode%"=="1" (
+    echo 🚀 Lancement du projet en mode rapide...
+    npm run start
+) else if "%mode%"=="2" (
+    rem Initialiser le projet npm si besoin
+    if not exist package.json (
+        echo 📦 Initialisation du projet npm...
+        npm init -y
+    )
+
+    rem Installation des dépendances principales
+    echo 📥 Installation des dépendances...
+    npm i express socket.io yaml fs node-notifier open child_process uuid
+
+    rem Installation des dépendances de développement
+    echo 🛠️ Installation des dépendances dev...
+    npm i --save-dev typescript nodemon concurrently @types/node @types/yaml @types/node-notifier
+
+    echo ✅ Mode complet terminé. Application prête.
+    rem npm run dev
+) else if "%mode%"=="3" (
+    rem Exécuter npm install dans tous les cas
+    echo ⏳ Installation des dépendances de base...
+    npm install
+) else (
+    echo ❌ Mode inconnu : "%mode%"
 )
 
 pause

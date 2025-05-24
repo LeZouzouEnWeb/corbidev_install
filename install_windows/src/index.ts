@@ -4,7 +4,7 @@ import { installSymfony } from './functions_js/symfony';
 import open from 'open';
 import { installWordpress } from './functions_js/wordpress';
 import { installScssTs } from './functions_js/installScssTs';
-import { lancementServeur } from './functions_js/lancementServeur';
+import { findAvailablePort, lancementServeur } from './functions_js/lancementServeur';
 import { FOLDER_REL_BASE, PORT_INSTALL, PORT_BACKEND, PORT_FRONTEND } from './functions_js/variables';
 import { createEnvBase } from './functions_js/file_env';
 import { Server } from 'socket.io';
@@ -92,11 +92,11 @@ app.get('/run-action/:action', async (req: Request, res: Response): Promise<void
 
             case 'LS':
                 console.log('Lancement du  serveur Symfony');
-                await lancementServeur("front", PORT_FRONTEND);
+                await lancementServeur("front", await PORT_FRONTEND);
                 break;
             case 'LW':
                 console.log('Lancement du  serveur WordPress');
-                await lancementServeur("back", PORT_BACKEND);
+                await lancementServeur("back", await PORT_BACKEND);
                 break;
 
 
@@ -114,25 +114,13 @@ app.get('/run-action/:action', async (req: Request, res: Response): Promise<void
     }
 });
 
-// Démarre le serveur Express et ouvre automatiquement l'URL dans le navigateur.
-server.listen(PORT_INSTALL, async () => {
-    console.log(`Server running at http://localhost:${PORT_INSTALL}`);
-    // Ouvrir le navigateur sur l'URL de localhost dès que le serveur démarre
-    try {
-
-        // const open = (await import('open')).default;
-        open(`http://localhost:${PORT_INSTALL}`);
-    } catch (err) {
-        console.error('Failed to open the browser:', err);
-    }
-});
 
 function shutdown() {
-
+    
     console.log('Arrêt du serveur en cours...');
     // Arrêter le serveur après 10 secondes
     // setTimeout(() => {
-    //     server.close(() => {
+        //     server.close(() => {
     //         console.log('Serveur arrêté');
     //     });
     // }, 10000);  // Arrêt après 10 secondes
@@ -142,3 +130,24 @@ function shutdown() {
         process.exit();
     }, 1000);  // Arrêt après 10 secondes
 }
+
+// Démarre le serveur Express et ouvre automatiquement l'URL dans le navigateur.
+// Lancement du serveur
+async function start() {
+    const PORT_SERVEUR = await findAvailablePort(PORT_INSTALL);
+
+    const server = app.listen(PORT_SERVEUR, async () => {
+        console.log(`✅ Server running at http://localhost:${PORT_SERVEUR}`);
+        try {
+            await open(`http://localhost:${PORT_SERVEUR}`);
+        } catch (err) {
+            console.error('❌ Failed to open the browser:', err);
+        }
+    });
+
+    server.on('error', (err) => {
+        console.error('Erreur serveur :', err);
+    });
+}
+
+start();
