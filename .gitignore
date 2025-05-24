@@ -303,4 +303,4 @@ wp-config.php
 *.bak
 
 /install_windows/dist/
-!/install_windows/dist/.corbidev
+!install_windows/dist/.corbidev
