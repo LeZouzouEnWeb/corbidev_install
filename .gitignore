@@ -94,7 +94,7 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist
 
 # Gatsby files
 .cache/
@@ -293,7 +293,6 @@ wp-config.php
 # uncomment the next line
 #/wp-content/themes
 
-
 # End of https://www.toptal.com/developers/gitignore/api/windows,visualstudiocode,node,sonar,symfony,wordpress
 
 # Custom rules (everything added below won't be overriden by 'Generate .gitignore File' if you use 'Update' option)
@@ -301,4 +300,6 @@ wp-config.php
 /serveur*
 /server*
 *.bak
-!dist\.corbidev
+
+/install_windows/dist/*
+!install_windows/dist/.corbidev
