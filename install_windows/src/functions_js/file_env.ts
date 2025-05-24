@@ -4,7 +4,7 @@ import {
     FOLDER_REL_BASE,
     FOLDER_REL_SERVER_BACK,
     FOLDER_REL_SERVER_FRONT,
-    PORT_BACKEND
+    PORT_WORDPRESS
 } from './variables';
 import { createFiles } from './folder_file';
 
@@ -146,7 +146,7 @@ MESSENGER_TRANSPORT_DSN=doctrine://default?auto_setup=0
 
     wordpress: (securityKeys: Record<string, string>) => `
 ${commonVariables}
-HTTP_LOCALHOST_PORT=${PORT_BACKEND}
+HTTP_LOCALHOST_PORT=${PORT_WORDPRESS}
 ###< PORTS ###
 
 DB_NAME=\${NAME}

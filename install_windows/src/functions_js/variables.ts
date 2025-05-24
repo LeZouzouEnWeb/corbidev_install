@@ -6,8 +6,8 @@ import config from  "../instal_config.json";
  * @type {number}
  */
 export const PORT_INSTALL: number = config.port.install ?? 3000;
-export const PORT_BACKEND: number = config.port.backend ?? 9000;
-export const PORT_FRONTEND: number = config.port.frontend ?? 8080;
+export const PORT_WORDPRESS: number = config.port.wordpress ?? 9000;
+export const PORT_SYMFONY: number = config.port.symfony ?? 8080;
 
 
 
@@ -32,7 +32,7 @@ export const FOLDER_REL_BASE: string = process.env.folder_rel_serveur || path.jo
  * @constant
  * @type {string}
  */
-export const FOLDER_SERVER_FRONT: string = config.name.dossier_front ?? "serveur-frontend";
+export const FOLDER_SERVER_FRONT: string =  "serveur-" + (config.name.dossier_symfony ?? "symfony");
 
 /**
  * Chemin relatif vers le dossier du serveur frontend. Si la variable d'environnement 'folder_rel_serveur' est définie, elle est utilisée, sinon un chemin par défaut est généré.
@@ -53,7 +53,7 @@ export const BACKUP_FOLDER: string = FOLDER_REL_SERVER_FRONT + '_backup';
  * @constant
  * @type {string}
  */
-export const FOLDER_SERVER_BACK: string = config.name.dossier_back ?? "serveur-backend";
+export const FOLDER_SERVER_BACK: string = "serveur-" + (config.name.dossier_wordpress ?? "wordpress");
 
 /**
  * Chemin relatif vers le dossier du serveur backend. Si la variable d'environnement 'folder_rel_serveur' est définie, elle est utilisée, sinon un chemin par défaut est généré.
@@ -105,5 +105,5 @@ export const BDD = {
     version_adminer: config.version.adminer ?? "4.8.1",
     folderDatabase: FOLDER_DATA_BASE,
     folderServeurBack: FOLDER_SERVER_BACK,
-    port_symfony: PORT_FRONTEND
+    port_symfony: PORT_SYMFONY
 };
