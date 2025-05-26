@@ -103,5 +103,9 @@ export const BDD = {
     version_adminer: config.version.adminer ?? "4.8.1",
     folderDatabase: FOLDER_DATA_BASE,
     folderServeurBack: FOLDER_SERVER_BACK,
-    port_symfony: PORT_SYMFONY
+    port_symfony: PORT_SYMFONY,
+    port_adminer: config.port.adminer ?? 8080,
+    port_mariadb: config.port.mariadb ?? 3306,
+    port_mailer_smtp: config.port.mailer_smtp ?? 1025,
+    port_mailer_html: config.port.mailer_html ?? 8025
 };

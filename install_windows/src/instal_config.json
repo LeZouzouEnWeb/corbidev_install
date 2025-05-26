@@ -15,6 +15,10 @@
     "port": {
         "install": 3000,
         "wordpress": 9900,
-        "symfony": 8000
+        "symfony": 8000,
+        "adminer": 5080,
+        "mariadb": 3380,
+        "mailer_smtp":1025,
+        "mailer_html":8880
     }
 }

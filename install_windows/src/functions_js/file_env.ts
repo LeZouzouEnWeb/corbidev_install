@@ -17,7 +17,11 @@ const {
     version_adminer,
     folderDatabase,
     folderServeurBack,
-    port_symfony
+    port_symfony,
+    port_adminer,
+    port_mariadb,
+    port_mailer_smtp,
+    port_mailer_html
 } = BDD;
 
 // Variables communes pour les fichiers .env
@@ -49,13 +53,13 @@ ADMINER_DEFAULT_DB_NAME=\${MYSQL_DATABASE}
 
 ###> PORTS ###
 SQL_DOCKER_PORT=3306
-SQL_LOCALHOST_PORT=3388
+SQL_LOCALHOST_PORT=${port_mariadb}
 
 MAILER_DOCKER_SMTP_PORT=1025
-MAILER_LOCALHOST_SMTP_PORT=1025
+MAILER_LOCALHOST_SMTP_PORT=${port_mailer_smtp}
 
 MAILER_DOCKER_HTML_PORT=8025
-MAILER_LOCALHOST_HTML_PORT=8025
+MAILER_LOCALHOST_HTML_PORT=${port_mailer_html}
 
 HTTPS_LOCALHOST_PORT=443
 HTTP3_LOCALHOST_PORT=443
@@ -82,7 +86,7 @@ const envTemplates = {
     racine: `
 ${commonVariables}
 ADMINER_DOCKER_PORT=8080
-ADMINER_LOCALHOST_PORT=5088
+ADMINER_LOCALHOST_PORT=${port_adminer}
 ###< PORTS ###
 
 ###> FOLDERS ###
