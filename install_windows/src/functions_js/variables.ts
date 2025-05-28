@@ -25,7 +25,7 @@ export const FOLDER_DATA_BASE: string = config.name.database ?? "database";
  * @constant
  * @type {string}
  */
-export const FOLDER_REL_BASE: string = process.env.folder_rel_serveur ?? path.join(__dirname, '..', '..', '..');
+export const FOLDER_REL_BASE: string = path.join(__dirname, '..', '..','..');
 
 /**
  * Nom du dossier du serveur frontend.
@@ -39,7 +39,7 @@ export const FOLDER_SERVER_FRONT: string =  "serveur-" + (config.name.dossier_sy
  * @constant
  * @type {string}
  */
-export const FOLDER_REL_SERVER_FRONT: string = process.env.folder_rel_serveur ?? path.join(FOLDER_REL_BASE, FOLDER_SERVER_FRONT);
+export const FOLDER_REL_SERVER_FRONT: string = path.join(FOLDER_REL_BASE, FOLDER_SERVER_FRONT);
 
 /**
  * Dossier de sauvegarde pour le serveur frontend.
@@ -60,7 +60,7 @@ export const FOLDER_SERVER_BACK: string = "serveur-" + (config.name.dossier_word
  * @constant
  * @type {string}
  */
-export const FOLDER_REL_SERVER_BACK: string = process.env.folder_rel_serveur ?? path.join(FOLDER_REL_BASE, FOLDER_SERVER_BACK);
+export const FOLDER_REL_SERVER_BACK: string = path.join(FOLDER_REL_BASE, FOLDER_SERVER_BACK);
 
 /**
  * Dossier de sauvegarde pour le serveur backend.
