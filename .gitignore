@@ -304,5 +304,5 @@ wp-config.php
 /install_windows/dist/*
 !install_windows/dist/.corbidev
 
-/database/*
+/database
 !/database/sql/*
