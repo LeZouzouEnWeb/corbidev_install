@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
-    "@types/node": "^22.15.21",
+    "@types/node": "^22.15.23",
     "@types/node-notifier": "^8.0.5",
     "@types/yaml": "^1.9.6",
     "concurrently": "^9.1.2",

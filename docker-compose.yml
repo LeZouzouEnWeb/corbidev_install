@@ -22,8 +22,8 @@ services:
         env_file:
             - .env
         volumes:
-            - ../${FOLDER_DATASQL}:/docker-entrypoint-initdb.d/
-            - ../${FOLDER_DATABASE}:/var/lib/mysql:rw
+            - /${FOLDER_DATASQL}:/docker-entrypoint-initdb.d/
+            - /${FOLDER_DATABASE}:/var/lib/mysql:rw
         ports:
             - ${SQL_LOCALHOST_PORT}:${SQL_DOCKER_PORT}
 ###< doctrine/doctrine-bundle ###
