@@ -1,4 +1,4 @@
-﻿chcp 65001 >nul
+chcp 65001 >nul
 @echo off
 cls
 
@@ -8,7 +8,7 @@ echo =============================
 echo.
 echo 1 - Mode rapide (npm install + start)
 echo 2 - Mode complet (init, install, dev tools)
-echo 3 - Mode Install 
+echo 3 - Mode Install
 echo.
 set /p mode="Entrez le mode (1, 2 ou 3) : "
 
